@@ -18,8 +18,8 @@ class CreatePostsTable extends Migration
             $table->String('name');
             $table->String('slug');
 
-            $table->text('extract');
-            $table->longText('body');
+            $table->text('extract')->nullable();
+            $table->longText('body')->nullable();
 
             $table->enum('status', [1,2])->default(1);
 
