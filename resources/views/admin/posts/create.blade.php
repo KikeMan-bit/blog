@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off']) !!}
+            {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true]) !!}
 
             {!! Form::hidden('user_id', auth()->user()->id) !!}
 
@@ -72,7 +72,25 @@
                 @enderror
             </div>
             
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="image-wrapper">
+                        <img id="picture" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group" >
+                        {!! Form::label('file', 'imagen que se mostrara en el post') !!}
+                        {!! Form::file('file', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                    
+                        @error('file')
+                            <span class="text-danger" >{{$message}}</span>
+                        @enderror
+                    </div>
 
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni aut ipsa expedita voluptates, impedit consequuntur eum perferendis distinctio nihil nostrum exercitationem quaerat numquam autem molestias sit tempore sequi corporis quod!</p>
+                </div>
+            </div>
             <div class="form-group">
                 {!! Form::label('extract', 'Extracto:') !!}
                 {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
@@ -95,6 +113,22 @@
             {!! Form::close() !!}
         </div>
     </div>
+@stop
+
+@section('css')
+    <style>
+        .image-wrapper {
+            position: relative;
+            padding-bottom: 56.25%
+        }
+
+        .image-wrapper img{
+            position: absolute;
+            object-fit:cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 @stop
 
 @section('js')
@@ -122,6 +156,19 @@
         .catch( error => {
             console.error( error );
         } );
+        //CAMBIAR IMAGEN
+        document.getElementById("file").addEventListener('change', cambiarImagen);
+
+        function cambiarImagen(event) {
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload =  (event) => {
+                document.getElementById("picture").setAttribute('src', event.target.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
    </script>
 
 @endsection
