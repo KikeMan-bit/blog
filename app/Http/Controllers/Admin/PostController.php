@@ -11,7 +11,7 @@ use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
 
 
-use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -44,7 +44,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostRequest $request )
+    public function store(PostRequest $request )
     {
         // return Storage::put('posts', $request->file('file'));
 
@@ -83,7 +83,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.show', compact('post'));
+
+        $this->authorize('author',$post);
+
+        $categories =  Category::pluck('name', 'id');
+        $tags = Tag::all();
+        
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -93,9 +99,31 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Post $post)
+    public function update(PostRequest $request,Post $post)
     {
-        //
+        $this->authorize('author',$post);
+        $post->update($request->all());
+
+        if ($request->file('file')) {
+            $url  = Storage::put('posts', $request->file('file'));
+            
+            if ($post->image) {
+                Storage::delete($post->image->url);
+
+                $post->image->update([
+                    'url' => $url
+                ]);
+
+            }else{
+                $post->image()->create([
+                    'url' =>$url
+                ]);
+            }
+        }
+        if ($request->tags) {
+            $post->tags()->sync($request->tags);
+         }
+        return redirect()->route('admin.posts.edit', $post)->with('info','El post se actualizo con exito');
     }
 
     /**
@@ -106,6 +134,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $this->authorize('author',$post);
+        $post->delete();
+
+        return redirect()->route('admin.posts.index', $post)->with('info','El post se elimino con exito');
+
     }
 }
