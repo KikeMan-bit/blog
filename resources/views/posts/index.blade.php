@@ -17,7 +17,8 @@
                             </a>
                         </h1>
                     </div>
-                </article>                
+                </article> 
+                               
             @endforeach
         </div>
 
