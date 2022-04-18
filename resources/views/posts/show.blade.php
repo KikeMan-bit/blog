@@ -2,7 +2,7 @@
     <div class="localcontainer py-8 ">
         <h1 class="text-4xl font-bold text-gray-600">{{$post->name}}</h1>
 
-        <div class="text-lg text-gray-500 mb-2">
+        <div class="text-lg text-gray-500 mb-2 ck-content">
             {!!$post->extract!!}
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -16,7 +16,7 @@
                         <img class="w-full h-80 object-cover object-center" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg" alt="">
                     @endif
                 </figure>
-                <div class="text-base text-gray-500 mt-4" >
+                <div class="text-base text-gray-500 mt-4 ck-content" >
                     {!!$post->body!!}
                 </div>
 
