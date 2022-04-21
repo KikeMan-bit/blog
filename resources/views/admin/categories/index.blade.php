@@ -3,6 +3,11 @@
 @section('title', 'Blog')
 
 @section('content_header')
+
+    @can('admin.categories.create')
+    <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.categories.create')}}">Agregar Categoria</a>
+    @endcan
+
     <h1>Lista Categoria</h1>
 @stop
 
@@ -16,9 +21,6 @@
 @endif
     <div class="card">
 
-        <div class="card-header">
-            <a class="btn btn-secondary" href="{{route('admin.categories.create')}}">Agregar Categoria</a>
-        </div>
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
@@ -35,9 +37,12 @@
                             <td>{{$category->id}}</td>
                             <td>{{$category->name}}</td>
                             <td width="10px">
+                                @can('admin.categories.edit')
                                 <a class="btn btn-primary" href="{{route('admin.categories.edit', $category)}}">Editar</a>
+                                @endcan
                             </td>
                             <td width="10px">
+                                @can('admin.categories.destroy')
                                 <form action="{{route('admin.categories.destroy', $category)}}" method="post">
                                     @csrf
                                     @method('delete')
@@ -46,6 +51,7 @@
                                         Eliminar
                                     </button>
                                 </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach
