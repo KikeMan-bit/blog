@@ -3,13 +3,13 @@
         <input wire:model="search" class="form-control" placeholder="INGRESE EL NOMBRE DEL POST">
     </div>
     @if ($posts->count() > 0)
-        
+    {{-- {{ $posts }} --}}
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>NAME</th>
+                        <th>POST</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
