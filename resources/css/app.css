@@ -1,4 +1,5 @@
 @import 'commom.css';
+@import 'font.css';
 
 @tailwind base;
 @tailwind components;

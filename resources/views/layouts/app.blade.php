@@ -10,6 +10,9 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+        <link rel="stylesheet" href="https://use.typekit.net/oul4ncn.css">
+
+
         <!-- Styles -->
 
         @livewireStyles
@@ -17,7 +20,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-roman55pro antialiased">
         {{-- <x-jet-banner /> --}}
 
         <div class="min-h-screen bg-gray-100">
