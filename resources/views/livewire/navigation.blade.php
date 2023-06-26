@@ -1,11 +1,11 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
-<nav class="bg-white font-attentica " x-data="{ open: false }">
+<nav class="bg-cyan-700 font-attentica sticky top-0 z-10 shadow-lg " x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div class="relative flex items-center justify-between h-16">
+        <div class="relative flex items-center justify-center h-10 ">
             <!-- Mobile menu button-->
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <button x-on:click="open = true" type="button"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <!--
@@ -38,15 +38,15 @@
             <div class="flex items-center justify-center">
 
                 {{-- logotipo --}}
-                <a href="/" class="flex-shrink-0 flex items-center">
-                    {{-- <img class="block lg:hidden h-8 w-auto"
+                {{-- <a href="/" class="flex-shrink-0 flex items-center">
+                    <img class="block lg:hidden h-8 w-auto"
                         src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
                     
                     <img class="hidden lg:block h-8 w-auto"
                         src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                        alt="Workflow"> --}}
+                        alt="Workflow">
 
-                    <span class="ml-8 sm:ml-0" >
+                    <span class="ml-8 sm:ml-0">
                         <svg class="w-14 h-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810.65 774.02">
                             <defs>
                                 <style>
@@ -110,7 +110,7 @@
                         </svg>
                     </span>
 
-                </a>
+                </a> --}}
                 {{-- Menu lg --}}
                 <div class="hidden sm:block sm:ml-10">
                     <div class="flex items-center justify-center space-x-4">
@@ -123,10 +123,19 @@
 
                         <a href="#"
                             class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a> --}}
+                        <a href="/"
+                            class=" text-white uppercase font-semibold hover:bg-white hover:text-cyan-700 px-3 py-1 rounded-sm text-xs @if (Route::is('posts.index')) {{ 'text-cyan-700 bg-white' }} @endif">Inicio</a>
+
+                        {{-- @foreach ($categories as $category)
+                            <a href="{{ route('posts.category', $category) }}"
+                                class="@if (Route::is('posts.category', $category)) {{ '!text-blue-700 !bg-white' }} @endif text-yellow-500 uppercase font-semibold hover:bg-white hover:text-blue-700  px-3 py-1 rounded-sm text-xs">{{ $category->name }}</a>
+                        @endforeach --}}
+
                         @foreach ($categories as $category)
                             <a href="{{ route('posts.category', $category) }}"
-                                class="text-gray-900 font-bold hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">{{ $category->name }}</a>
+                                class="text-white uppercase font-semibold px-3 py-1 rounded-sm text-xs @if (request()->route()->getName() == 'posts.category' && request()->route('category') == $category) text-cyan-700 bg-white @else hover:bg-white hover:text-cyan-700 @endif">{{ $category->name }}</a>
                         @endforeach
+
 
                     </div>
                 </div>
@@ -148,15 +157,15 @@
                         </div>
 
                         <!--
-                                    Dropdown menu, show/hide based on menu state.
-                        
-                                    Entering: "transition ease-out duration-100"
-                                        From: "transform opacity-0 scale-95"
-                                        To: "transform opacity-100 scale-100"
-                                    Leaving: "transition ease-in duration-75"
-                                        From: "transform opacity-100 scale-100"
-                                        To: "transform opacity-0 scale-95"
-                                    -->
+                                                    Dropdown menu, show/hide based on menu state.
+                                        
+                                                    Entering: "transition ease-out duration-100"
+                                                        From: "transform opacity-0 scale-95"
+                                                        To: "transform opacity-100 scale-100"
+                                                    Leaving: "transition ease-in duration-75"
+                                                        From: "transform opacity-100 scale-100"
+                                                        To: "transform opacity-0 scale-95"
+                                                    -->
                         <div x-show="open" x-on:click.away="open = false"
                             class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
@@ -179,15 +188,12 @@
                 </div>
             @else
                 <div>
-                    <a href="{{ route('login') }}"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+                    <a href="{{ route('login') }}" class="text-gray-900 font-light px-3 py-2 rounded-md text-sm">Inicia
+                        Sesion</a>
                     <a href="{{ route('register') }}"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Register</a>
+                        class="text-gray-900 font-light px-3 py-2 rounded-md text-sm">Registrate</a>
                 </div>
             @endauth
-
-
-
         </div>
     </div>
 
@@ -203,9 +209,13 @@
 
             <a href="#"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a> --}}
+            <hr>
+            <a href="/"
+                class="text-white hover:bg-white hover:text-blue-500 block px-3 py-2 rounded-md text-base">Inicio</a>
             @foreach ($categories as $category)
+                <hr>
                 <a href="{{ route('posts.category', $category) }}"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ $category->name }}</a>
+                    class="text-white hover:bg-white hover:text-blue-500 block px-3 py-2 rounded-md text-base ">{{ $category->name }}</a>
             @endforeach
 
         </div>

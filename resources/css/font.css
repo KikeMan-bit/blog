@@ -1,14 +1,20 @@
 @font-face {
-    font-family: 'attentica';
-    src: url('fonts/NunitoSans-Regular.ttf');
+    font-family: "attentica";
+    src: url("fonts/NunitoSans-Regular.ttf");
 }
 
-.font-attentica{
+.font-attentica {
     font-family: attentica;
 }
 
-.font-roman55pro{
+.font-roman55pro {
     font-family: "neue-haas-grotesk-display", sans-serif;
     font-weight: 500;
+    font-style: normal;
+}
+
+.font-alarf {
+    font-family: "alfarn-2", sans-serif;
+    font-weight: 700;
     font-style: normal;
 }

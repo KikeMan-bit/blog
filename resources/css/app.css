@@ -1,5 +1,6 @@
 @import 'commom.css';
 @import 'font.css';
+@import 'ckeditor.css';
 
 @tailwind base;
 @tailwind components;

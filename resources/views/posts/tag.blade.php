@@ -1,11 +1,15 @@
 <x-app-layout>
-    <div class="max-w-5xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
-        <h1 class="uppercase text-center text-3xl font-bold" >Etiqueta: {{$tag->name}}</h1>
-        @foreach ($posts as $post)
-           <x-card-post :post="$post" />
-        @endforeach
-        <div class="mt-4" >
-            {{$posts->links()}}
+    <div class="bg-blue-100">
+        <div class="flex justify-center items-center p-4">
+            <h2 class="text-4xl font-bold bg-red-500 px-6 py-2 text-white rounded-sm">#{{ $tag->name }}</h2>
+        </div>
+        <div class=" grid grid-cols-1 gap-4 md:grid-cols-2 px-2">
+            @foreach ($posts as $post)
+                <x-card-post :post="$post" />
+            @endforeach
+            <div class="mt-4">
+                {{ $posts->links() }}
+            </div>
         </div>
     </div>
 </x-app-layout>
