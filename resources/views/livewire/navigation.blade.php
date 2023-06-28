@@ -1,7 +1,7 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <nav class="bg-white font-attentica sticky top-0 z-10 shadow-md " x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div class="relative flex items-center justify-center h-10 ">
+        <div class="relative flex items-center justify-center sm:h-10 h-20 ">
             <!-- Mobile menu button-->
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <button x-on:click="open = true" type="button"
@@ -36,7 +36,7 @@
             </div>
 
             <div class="shrink-0 flex items-center sm:hidden">
-                <a href="/">
+                <a class="hidden" href="/">
                     <img class="h-8 w-8" src="{{ asset('img/storebinary.svg') }}" alt="">
                     {{-- <x-application-mark class="block h-9 w-auto" /> --}}
                 </a>
@@ -224,11 +224,11 @@
                 class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a> --}}
             <hr>
             <a href="/"
-                class="text-gray-800 hover:bg-white hover:text-blue-500 block px-3 py-2 rounded-md text-base">Inicio</a>
+                class=" text-gray-900 uppercase font-semibold hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-sm text-xs @if (Route::is('posts.index')) {{ 'text-white bg-gray-800' }} @endif">Inicio</a>
             @foreach ($categories as $category)
                 <hr>
                 <a href="{{ route('posts.category', $category) }}"
-                    class="text-gray-800 hover:bg-white hover:text-blue-500 block px-3 py-2 rounded-md text-base ">{{ $category->name }}</a>
+                    class="uppercase font-semibold px-3 py-2 block rounded-sm text-xs @if (request()->route()->getName() == 'posts.category' && request()->route('category') == $category) text-white bg-gray-800  @else  hover:bg-gray-900 hover:text-white @endif">{{ $category->name }}</a>
             @endforeach
 
         </div>
