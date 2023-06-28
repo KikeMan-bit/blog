@@ -1,0 +1,16 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-38ad7aa1.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/css/fonts/NunitoSans-Regular.ttf": {
+    "file": "assets/NunitoSans-Regular-7acb3e45.ttf",
+    "src": "resources/css/fonts/NunitoSans-Regular.ttf"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-c2a7332f.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
