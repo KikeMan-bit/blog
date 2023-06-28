@@ -21,8 +21,8 @@
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
     {{-- para production --}}
-    <script src="{{ asset('build/assets/app-38ad7aa1.js') }}" defer></script>
-    <link rel="stylesheet" href="{{ asset('build/assets/app-c2a7332f.css') }}">
+    <script src="{{ asset('build/assets/app-c2a7332f.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ asset('build/assets/app-38ad7aa1.css') }}">
 
 </head>
 
