@@ -5,7 +5,7 @@
             <!-- Mobile menu button-->
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <button x-on:click="open = true" type="button"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <!--
@@ -33,6 +33,20 @@
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
+            </div>
+
+            <div class="shrink-0 flex items-center sm:hidden">
+                <a href="/">
+                    <img class="h-8 w-8" src="{{ asset('img/storebinary.svg') }}" alt="">
+                    {{-- <x-application-mark class="block h-9 w-auto" /> --}}
+                </a>
+                <span class="dark:text-gray-900 urbane ml-4">
+                    <a href="" class="text-2xl font-bold">Store Binary</a>
+                </span>
+                <span class="text-xs font-bold">
+                    /Blog
+                </span>
+    
             </div>
 
             <div class="flex items-center justify-center">
@@ -141,7 +155,7 @@
                 </div>
             </div>
 
-            @auth
+            {{-- @auth
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                     <!-- Profile dropdown -->
                     <div class="ml-3 relative" x-data="{ open: false }">
@@ -186,13 +200,13 @@
                     </div>
                 </div>
             @else
-                <div class="flex justify-center items-center space-x-4 ml-2">
+                {{-- <div class="flex justify-center items-center space-x-4 ml-2">
                     <a href="{{ route('login') }}" class="text-gray-900 bg-yellow-600 font-semibold hover:bg-yellow-500 hover:text-gray-900 uppercase px-3 py-1 rounded-sm text-xs">Inicia
                         Sesion</a>
                     <a href="{{ route('register') }}"
                         class="text-gray-900 bg-yellow-600 font-semibold hover:bg-yellow-500 hover:text-gray-900 uppercase px-3 py-1 rounded-sm text-xs">Registrate</a>
-                </div>
-            @endauth
+                </div> --}}
+            {{-- @endauth --}}
         </div>
     </div>
 
