@@ -1,5 +1,5 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
-<nav class="bg-cyan-700 font-attentica sticky top-0 z-10 shadow-lg " x-data="{ open: false }">
+<nav class="bg-white font-attentica sticky top-0 z-10 shadow-md " x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-center h-10 ">
             <!-- Mobile menu button-->
@@ -124,7 +124,7 @@
                         <a href="#"
                             class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a> --}}
                         <a href="/"
-                            class=" text-white uppercase font-semibold hover:bg-white hover:text-cyan-700 px-3 py-1 rounded-sm text-xs @if (Route::is('posts.index')) {{ 'text-cyan-700 bg-white' }} @endif">Inicio</a>
+                            class=" text-gray-900 uppercase font-semibold hover:bg-gray-900 hover:text-white px-3 py-1 rounded-sm text-xs @if (Route::is('posts.index')) {{ 'text-white bg-gray-800' }} @endif">Inicio</a>
 
                         {{-- @foreach ($categories as $category)
                             <a href="{{ route('posts.category', $category) }}"
@@ -133,7 +133,7 @@
 
                         @foreach ($categories as $category)
                             <a href="{{ route('posts.category', $category) }}"
-                                class="text-white uppercase font-semibold px-3 py-1 rounded-sm text-xs @if (request()->route()->getName() == 'posts.category' && request()->route('category') == $category) text-cyan-700 bg-white @else hover:bg-white hover:text-cyan-700 @endif">{{ $category->name }}</a>
+                                class=" uppercase font-semibold px-3 py-1 rounded-sm text-xs @if (request()->route()->getName() == 'posts.category' && request()->route('category') == $category) text-white bg-gray-800  @else  hover:bg-gray-900 hover:text-white @endif">{{ $category->name }}</a>
                         @endforeach
 
 
@@ -143,7 +143,6 @@
 
             @auth
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
                     <!-- Profile dropdown -->
                     <div class="ml-3 relative" x-data="{ open: false }">
                         <div>
@@ -187,11 +186,11 @@
                     </div>
                 </div>
             @else
-                <div>
-                    <a href="{{ route('login') }}" class="text-gray-900 font-light px-3 py-2 rounded-md text-sm">Inicia
+                <div class="flex justify-center items-center space-x-4 ml-2">
+                    <a href="{{ route('login') }}" class="text-gray-900 bg-yellow-600 font-semibold hover:bg-yellow-500 hover:text-gray-900 uppercase px-3 py-1 rounded-sm text-xs">Inicia
                         Sesion</a>
                     <a href="{{ route('register') }}"
-                        class="text-gray-900 font-light px-3 py-2 rounded-md text-sm">Registrate</a>
+                        class="text-gray-900 bg-yellow-600 font-semibold hover:bg-yellow-500 hover:text-gray-900 uppercase px-3 py-1 rounded-sm text-xs">Registrate</a>
                 </div>
             @endauth
         </div>
@@ -211,11 +210,11 @@
                 class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a> --}}
             <hr>
             <a href="/"
-                class="text-white hover:bg-white hover:text-blue-500 block px-3 py-2 rounded-md text-base">Inicio</a>
+                class="text-gray-800 hover:bg-white hover:text-blue-500 block px-3 py-2 rounded-md text-base">Inicio</a>
             @foreach ($categories as $category)
                 <hr>
                 <a href="{{ route('posts.category', $category) }}"
-                    class="text-white hover:bg-white hover:text-blue-500 block px-3 py-2 rounded-md text-base ">{{ $category->name }}</a>
+                    class="text-gray-800 hover:bg-white hover:text-blue-500 block px-3 py-2 rounded-md text-base ">{{ $category->name }}</a>
             @endforeach
 
         </div>
