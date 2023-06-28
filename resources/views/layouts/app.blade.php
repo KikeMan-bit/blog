@@ -18,7 +18,12 @@
     @livewireStyles
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+
+    {{-- para production --}}
+    <script src="{{ asset('build/assets/app-38ad7aa1.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ asset('build/assets/app-38ad7aa1.css') }}">
+
 </head>
 
 <body class="font-roman55pro antialiased">
