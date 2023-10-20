@@ -41,7 +41,7 @@
                     {{-- <x-application-mark class="block h-9 w-auto" /> --}}
                 </a>
                 <span class="dark:text-gray-900 urbane ml-4">
-                    <a href="" class="text-2xl font-bold">Store Binary</a>
+                    <a href="" class="text-2xl font-bold">CarlosCruz</a>
                 </span>
                 <span class="text-xs font-bold">
                     /Blog

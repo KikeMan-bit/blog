@@ -30,12 +30,12 @@
     {{-- <x-jet-banner /> --}}
     <div class="bg-white p-2 sm:flex items-center justify-center hidden">
         <div class="shrink-0 flex items-center">
-            <a href="/">
-                <img class="h-14 w-14" src="{{ asset('img/storebinary.svg') }}" alt="">
-                {{-- <x-application-mark class="block h-9 w-auto" /> --}}
-            </a>
+            {{-- <a href="/">
+                <img class="h-14 w-14" src="{{ asset('img/logocc.svg') }}" alt="">
+                <x-application-mark class="block h-9 w-auto" />
+            </a> --}}
             <span class="dark:text-gray-900 urbane ml-4">
-                <a href="" class="text-2xl font-bold">Store Binary</a>
+                <a href="" class="text-xl font-bold">CarlosCruz</a>
             </span>
             <span class="text-xs font-bold">
                 /Blog
