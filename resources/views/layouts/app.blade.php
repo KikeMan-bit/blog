@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" href="https://use.typekit.net/oul4ncn.css">
 
+    <link rel="shortcut icon" href={{ asset('img/logo2.svg') }} type="image/x-icon">
+
     <!-- Styles -->
 
     @livewireStyles
